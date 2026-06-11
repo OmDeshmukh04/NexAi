@@ -3,7 +3,7 @@
 import { siteConfig } from "@/lib/constants";
 
 const footerLinks = {
-  Platform: ["AI Agents", "Automation Studio", "Analytics", "Command Center", "API Docs", "Pricing"],
+  Platform: ["Command Center", "AI Agents", "Reconciliation Engine", "Automation Studio", "API Docs", "Pricing"],
   Company: ["About", "Careers", "Blog", "Press", "Partners", "Contact"],
   Resources: ["Documentation", "Guides", "Support", "Status", "Changelog", "Security"],
 };
@@ -26,8 +26,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-muted text-sm leading-relaxed max-w-xs mb-6">
-              The AI-powered automation platform for modern enterprises. Eliminate
-              manual work, optimize operations, and scale infinitely.
+              The AI automation platform for fintech and financial services.
+              Eliminate manual ops, stay compliant, and scale infinitely.
             </p>
 
             {/* Social Icons */}

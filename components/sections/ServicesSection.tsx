@@ -84,8 +84,8 @@ export default function ServicesSection() {
             <span className="gradient-text-secondary">support & expertise</span>
           </h2>
           <p className="text-lg text-muted max-w-2xl mx-auto">
-            Beyond technology — dedicated automation experts to ensure your
-            AI-powered operations run flawlessly at any scale.
+            Beyond software — dedicated fintech automation experts who keep
+            your money operations running flawlessly at any scale.
           </p>
         </div>
 

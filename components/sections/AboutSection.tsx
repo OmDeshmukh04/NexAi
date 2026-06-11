@@ -1,16 +1,22 @@
 "use client";
 
 import { useRef } from "react";
+import dynamic from "next/dynamic";
 import { gsap, useGSAP } from "@/lib/gsapConfig";
 import { stats } from "@/lib/constants";
 
+const PaymentsGlobe = dynamic(
+  () => import("@/components/three/PaymentsGlobe"),
+  { ssr: false }
+);
+
 const partners = [
-  "Accenture",
-  "Deloitte",
-  "McKinsey",
-  "SAP",
-  "Salesforce",
-  "ServiceNow",
+  "Meridian Bank",
+  "FlowPay",
+  "NorthLedger",
+  "Quantis",
+  "OrbitPay",
+  "VaultLine",
 ];
 
 export default function AboutSection() {
@@ -97,7 +103,7 @@ export default function AboutSection() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-6">
             <span className="text-ink">Powering the future</span>
             <br />
-            <span className="gradient-text">of intelligent automation</span>
+            <span className="gradient-text">of financial operations</span>
           </h2>
         </div>
 
@@ -122,21 +128,33 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Mission */}
-        <p className="text-center text-xl md:text-2xl text-muted leading-relaxed max-w-4xl mx-auto mb-16">
-          We&apos;re building the AI infrastructure that powers the next
-          generation of enterprise operations. Our mission is to make every
-          manual process{" "}
-          <span className="text-ink font-medium">
-            automated, intelligent, and self-optimizing
-          </span>{" "}
-          — so teams can focus on what truly matters.
-        </p>
+        {/* Mission + Globe */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="relative h-[380px] md:h-[460px] order-last lg:order-first">
+            <PaymentsGlobe />
+          </div>
+          <div>
+            <p className="text-xl md:text-2xl text-muted leading-relaxed mb-6">
+              We&apos;re building the AI infrastructure that runs money
+              operations for fintechs, banks, and global platforms. Our mission
+              is to make every financial workflow{" "}
+              <span className="text-ink font-medium">
+                automated, intelligent, and self-optimizing
+              </span>{" "}
+              — so your team scales revenue, not headcount.
+            </p>
+            <p className="text-lg text-muted leading-relaxed">
+              From payment retries in São Paulo to KYC checks in Singapore,
+              NexPay automations move work across the globe around the clock —
+              every pulse on this map is a workflow completing itself.
+            </p>
+          </div>
+        </div>
 
         {/* Partners */}
         <div className="text-center">
           <p className="text-xs text-muted uppercase tracking-[0.2em] mb-8">
-            Trusted by forward-thinking enterprises
+            Trusted by teams that move money
           </p>
           <div className="partners-row flex flex-wrap items-center justify-center gap-10 md:gap-16">
             {partners.map((name) => (

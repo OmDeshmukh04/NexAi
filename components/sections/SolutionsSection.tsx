@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsapConfig";
 import { solutions } from "@/lib/constants";
+import MetricsArc from "@/components/ui/MetricsArc";
 
 const icons: Record<string, React.ReactNode> = {
   automation: (
@@ -97,20 +98,42 @@ export default function SolutionsSection() {
       <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full bg-deep/[0.05] blur-[120px]" />
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        {/* Heading */}
-        <div className="solution-heading text-center mb-20">
-          <span className="inline-block text-sm font-medium text-accent uppercase tracking-[0.2em] mb-4">
-            Solutions
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-6">
-            <span className="gradient-text">Automate any workflow.</span>
-            <br />
-            <span className="text-ink">Eliminate manual work.</span>
-          </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
-            A comprehensive AI automation suite designed for modern enterprises.
-            Built for complexity, optimized for speed.
-          </p>
+        {/* Heading + live metrics arc */}
+        <div className="solution-heading mb-20 grid lg:grid-cols-[1fr_auto] gap-12 items-center">
+          <div className="text-center lg:text-left">
+            <span className="inline-block text-sm font-medium text-accent uppercase tracking-[0.2em] mb-4">
+              Solutions
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-6">
+              <span className="gradient-text">Automate every money workflow.</span>
+              <br />
+              <span className="text-ink">Eliminate manual ops.</span>
+            </h2>
+            <p className="text-lg text-muted max-w-2xl mx-auto lg:mx-0">
+              A complete automation suite for fintechs, banks, and platforms that
+              move money. Built for regulated complexity, optimized for speed.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-2.5 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
+              {[
+                "Smart retries",
+                "AML monitoring",
+                "Auto-reconciliation",
+                "KYC in seconds",
+                "500+ connectors",
+                "Immutable audit trails",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="px-4 py-2 rounded-full glass border border-ink/10 text-[13px] text-deep"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="hidden lg:flex justify-end pr-2">
+            <MetricsArc />
+          </div>
         </div>
 
         {/* Cards Grid */}

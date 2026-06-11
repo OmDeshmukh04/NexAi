@@ -277,6 +277,59 @@ h1, h2, h3, h4, h5, h6 {
   to { transform: rotate(360deg); }
 }
 
+/* ─── Metric planets — spheres that read like little earths ─── */
+.planet {
+  border: 1px solid rgba(0, 52, 52, 0.14);
+}
+
+.planet--teal {
+  background: radial-gradient(circle at 32% 28%, #7cc7b8 0%, #0f766e 55%, #043a36 100%);
+}
+
+.planet--lime {
+  background: radial-gradient(circle at 32% 28%, #ecf7c6 0%, #b5d447 55%, #74922a 100%);
+}
+
+/* Dotted landmass layer; pans horizontally = planet spinning on its axis */
+.planet-surface {
+  background-size: 11px 11px;
+  opacity: 0.5;
+  animation: planet-pan 14s linear infinite;
+}
+
+.planet-surface--teal {
+  background-image: radial-gradient(rgba(214, 238, 152, 0.6) 1.2px, transparent 1.5px);
+}
+
+.planet-surface--lime {
+  background-image: radial-gradient(rgba(5, 64, 64, 0.5) 1.2px, transparent 1.5px);
+}
+
+@keyframes planet-pan {
+  from { background-position: 0 0; }
+  to { background-position: 77px 0; }
+}
+
+/* Highlight + terminator shadow that sell the sphere */
+.planet-shade {
+  background: radial-gradient(
+    circle at 30% 26%,
+    rgba(255, 255, 255, 0.75) 0%,
+    rgba(255, 255, 255, 0.22) 30%,
+    rgba(255, 255, 255, 0) 55%
+  );
+  box-shadow:
+    inset -12px -12px 22px rgba(0, 25, 25, 0.4),
+    inset 6px 8px 14px rgba(255, 255, 255, 0.35);
+}
+
+.planet-active {
+  border-color: var(--color-primary);
+  box-shadow:
+    0 8px 30px rgba(181, 212, 71, 0.4),
+    0 0 0 4px rgba(181, 212, 71, 0.15);
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }

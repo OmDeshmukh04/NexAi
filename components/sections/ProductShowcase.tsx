@@ -1,21 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
-import dynamic from "next/dynamic";
-import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsapConfig";
+import { ScrollTrigger, useGSAP } from "@/lib/gsapConfig";
 import { products } from "@/lib/constants";
-
-const ProductScene = dynamic(
-  () => import("@/components/three/ProductScene"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-full h-full flex items-center justify-center">
-        <div className="w-10 h-10 border-2 border-ink/15 border-t-primary rounded-full animate-spin" />
-      </div>
-    ),
-  }
-);
+import DashboardMockup from "@/components/ui/DashboardMockup";
 
 const productColors = ["#054040", "#6f8f1f", "#0f766e", "#86a32e"];
 
@@ -130,9 +118,9 @@ export default function ProductShowcase() {
             </button>
           </div>
 
-          {/* Right: 3D Scene */}
-          <div className="relative h-[400px] lg:h-[550px]">
-            <ProductScene activeIndex={activeIndex} />
+          {/* Right: Live dashboard mockup */}
+          <div className="relative flex items-center justify-center min-h-[400px] lg:min-h-[550px]">
+            <DashboardMockup activeIndex={activeIndex} />
           </div>
         </div>
 

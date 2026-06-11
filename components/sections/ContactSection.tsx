@@ -37,8 +37,8 @@ export default function ContactSection() {
         </h2>
 
         <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10">
-          Join 2,500+ enterprises already using NexAI to automate their
-          operations. Get started in minutes, not months.
+          Join 2,500+ fintechs and finance teams already running their
+          operations on NexPay. Get started in minutes, not months.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-3 max-w-xl mx-auto mb-6">

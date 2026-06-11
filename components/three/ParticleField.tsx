@@ -3,6 +3,7 @@
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { mulberry32 } from "@/lib/prng";
 
 interface ParticleFieldProps {
   scrollProgress: React.RefObject<{ value: number }>;
@@ -18,14 +19,15 @@ export default function ParticleField({
   const { positions, sizes } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const sz = new Float32Array(count);
+    const rand = mulberry32(7340912 + count);
     for (let i = 0; i < count; i++) {
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      const r = 3 + Math.random() * 15;
+      const theta = rand() * Math.PI * 2;
+      const phi = Math.acos(2 * rand() - 1);
+      const r = 3 + rand() * 15;
       pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
       pos[i * 3 + 2] = r * Math.cos(phi);
-      sz[i] = Math.random() * 2 + 0.5;
+      sz[i] = rand() * 2 + 0.5;
     }
     return { positions: pos, sizes: sz };
   }, [count]);
